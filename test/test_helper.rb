@@ -5,7 +5,7 @@ require 'minitest/pride'
 require 'minitest/spec'
 require 'active_record'
 require 'temping'
-require 'polymorph'
+require 'activerecord-polymorph'
 require 'byebug'
 
 ActiveRecord::Base.establish_connection adapter: :sqlite3, database: ':memory:'
