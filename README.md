@@ -50,7 +50,7 @@ And get a polymorphic `ActiveRecord::Relation` back:
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'polymorph'
+gem 'activerecord-polymorph'
 ```
 
 And then execute:
@@ -116,7 +116,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/gdpelican/polymorph. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
+Bug reports and pull requests are welcome on GitHub at https://github.com/gdpelican/activerecord-polymorph. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
 ## License
 

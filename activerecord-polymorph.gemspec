@@ -4,13 +4,13 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'polymorph/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "polymorph"
+  spec.name          = "activerecord-polymorph"
   spec.version       = Polymorph::VERSION
   spec.authors       = ["James Kiesel"]
   spec.email         = ["james.kiesel@gmail.com"]
 
   spec.summary       = "Allows polymorphic loading of has_many through objects"
-  spec.homepage      = "https://www.github.com/gdpelican/polymorph"
+  spec.homepage      = "https://www.github.com/gdpelican/activerecord-polymorph"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }
