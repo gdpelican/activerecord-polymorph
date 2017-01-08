@@ -1,5 +1,4 @@
 require "polymorph/relation"
-require "byebug"
 
 module Polymorph
   module Methods
@@ -17,7 +16,7 @@ module Polymorph
           source_types.map { |t| "#{t}.*" },
           source_types.product(fields).map { |a| "#{a[0]}.#{a[1]} AS #{a[0].to_s.singularize}_#{a[1]}" },
           "#{through}.#{source_column}_type",
-          "'true'::boolean as polymorph_query"
+          "'is_polymorph' as polymorph_query"
         ].flatten.join(', '))
 
         source_types.each do |type|
@@ -33,6 +32,7 @@ module Polymorph
 
       through_class.define_singleton_method :instantiate, ->(attrs, column_types) {
         super(attrs, column_types).tap do |record|
+          break unless attrs['polymorph_query'].present?
           transfer_fields = fields.map { |field| [field, attrs["#{attrs[source_type].downcase}_#{field}"]] }.to_h
           record.assign_attributes(transfer_fields)
         end

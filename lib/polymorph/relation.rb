@@ -16,7 +16,7 @@ module Polymorph
 
     def where(hash = {})
       fields = hash.slice(*@fields)
-      fields.map do |field|
+      clause = fields.map do |field|
         %{(
           #{@source_types.map { |type| "#{type}.#{field[0]} = :#{field[0]}" }.join(" OR ")}
         )}
