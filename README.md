@@ -89,13 +89,13 @@ polymorph :participants, through: :comments, source_types: [:users, :robots], fi
 If we want to call these 'participants', but our database columns are already set to 'commenter_id' and 'commenter_type', we can invoke the `source_column` method:
 
 ```ruby
-polymorph :commenters, through: :comments, source_types: [:users, :robots], source_column: :commenter
+polymorph :participants, through: :comments, source_types: [:users, :robots], source_column: :commenter
 ```
 
 If the ruby class cannot be inferred by the 'through' option, we can point it to the right place with `through_class`:
 
 ```ruby
-polymorph :commenters, through: :comments, source_types: [:users, :robots], through_class: Comments::Base
+polymorph :participants, through: :comments, source_types: [:users, :robots], through_class: Comments::Base
 ```
 
 NB that this relation has somewhat limited support for further querying! Currently, we support count, pluck, and simple where clauses on common keys:
