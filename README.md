@@ -45,6 +45,28 @@ And get a polymorphic `ActiveRecord::Relation` back:
 ]>
 ```
 
+This means we can do some quite cool things we weren't able to before, like:
+
+```ruby
+# get the names of all participants
+discussion.participants.pluck(:name)
+```
+
+```ruby
+# count the number of participants
+discussion.participants.count
+```
+
+```ruby
+# notify all discussion participants
+discussion.participants.map(&:notify!)
+```
+
+```ruby
+# or generally any other nice duck-typed OO operations you'd care to name
+discussion.participants.each { |p| DiscussionMailer.announce(p) if p.wants_emails? }
+```
+
 ## Installation
 
 Add this line to your application's Gemfile:
